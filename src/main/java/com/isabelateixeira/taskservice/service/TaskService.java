@@ -55,7 +55,7 @@ public class TaskService {
         Task task = findTaskById(id);
 
         if (task.getStatus() == TaskStatus.COMPLETED) {
-            throw new ApiException("Completed tasks cannot be edited",HttpStatus.BAD_REQUEST);
+            throw new ApiException("Completed tasks cannot be edited", HttpStatus.BAD_REQUEST);
         }
 
         Optional.ofNullable(taskUpdate.getTitle()).ifPresent(task::setTitle);

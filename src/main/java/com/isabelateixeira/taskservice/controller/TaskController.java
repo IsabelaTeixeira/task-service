@@ -1,8 +1,6 @@
 package com.isabelateixeira.taskservice.controller;
 
 import com.isabelateixeira.taskservice.domain.Task;
-import com.isabelateixeira.taskservice.domain.enums.TaskPriority;
-import com.isabelateixeira.taskservice.domain.enums.TaskStatus;
 import com.isabelateixeira.taskservice.service.TaskService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -20,8 +18,7 @@ public class TaskController {
     private final TaskService taskService;
 
     @GetMapping
-    public List<Task> getTasks(@RequestParam(required = false) String status,
-                               @RequestParam(required = false) String priority) {
+    public List<Task> getTasks(@RequestParam(required = false) String status, @RequestParam(required = false) String priority) {
         return taskService.getTasks(status, priority);
     }
 
@@ -38,7 +35,7 @@ public class TaskController {
 
     @PutMapping("/{id}")
     public Task updateTask(@Valid @PathVariable String id, @RequestBody Task task) {
-       return taskService.updateTask(id, task);
+        return taskService.updateTask(id, task);
     }
 
     @DeleteMapping("/{id}")

@@ -40,4 +40,5 @@ public class Task {
 
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
 }
