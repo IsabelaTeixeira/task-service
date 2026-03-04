@@ -94,6 +94,7 @@ GET /tasks?status=pending&priority=high
 	"createdAt": "2026-03-04T16:47:57.3884411",
 	"updatedAt": "2026-03-04T16:47:57.3884411"
 }
+```
 - Se não encontrada → retorna `404 NOT FOUND` com JSON:
 ```
 {
@@ -101,6 +102,7 @@ GET /tasks?status=pending&priority=high
   "status": 404,
   "error": "Task not found"
 }
+```
 
 ## 4. Atualizar Tarefa por ID
 
@@ -155,6 +157,10 @@ Retorna 201 OK se deletado
 
 ## Tratamento de erros
 
+- 400 BAD REQUEST → Campos inválidos ou datas no passado
+- 404 NOT FOUND → Tarefa não encontrada
+- 500 INTERNAL SERVER ERROR → Erro interno do servidor
+  
 Erros da API são tratados com ApiException e interceptados pelo GlobalExceptionHandler, retornando JSON padronizado:
 ```
 {
@@ -163,3 +169,5 @@ Erros da API são tratados com ApiException e interceptados pelo GlobalException
   "error": "Completed tasks cannot be edited"
 }
 ```
+## Documentação
+Acesse a documentação Swagger: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
