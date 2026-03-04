@@ -15,12 +15,8 @@ public enum TaskStatus {
     public String toJson() {
         return this.name().toLowerCase();
     }
-
     @JsonCreator
     public static TaskStatus from(String value) {
-        if (value == null || value.isBlank()) {
-            return TaskStatus.PENDING;
-        }
         try {
             return TaskStatus.valueOf(value.toUpperCase());
         } catch (IllegalArgumentException e) {
